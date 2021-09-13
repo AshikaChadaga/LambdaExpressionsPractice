@@ -55,10 +55,12 @@ public class NumberPlayListApp {
 			System.out.println("Method6 : forEach Value: " + toDoubleFunction.apply(n));
 		});
 
-		// Method 7 : Implicit Lambda Function To Check Even
+		// Method 7 : Implicit Lambda Function To Check Even and Print
 		Predicate<Integer> isEvenFunction = n -> n > 0 && n % 2 == 0;
 		myNumberList.forEach(n -> {
-			System.out.println("Method7 : forEach Value of: " + n + " check for Even : " + isEvenFunction.test(n));
+			boolean testResult = isEvenFunction.test(n);
+			if(testResult == true)
+				System.out.println("Method7 : "+ n + " is Even : ");
 		});
 
 	}
