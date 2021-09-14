@@ -74,19 +74,30 @@ public class NumberPlayListApp {
 
 		// Method 9 : Process The Streams, Apply Operations on the Stream and Store the
 		// Result
-		List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(toDoubleFunction)
+		List<Double> streamList = myNumberList.stream().
+				filter(isEvenFunction)
+				.map(toDoubleFunction)
 				.collect(Collectors.toList());
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
 
 		// UC 2.5 : Peek First Element
-		Integer first = myNumberList.stream().filter(isEvenFunction)
-				.peek(n -> System.out.println("Peek Even Number: " + n)).findFirst().orElse(null);
+		Integer first = myNumberList.stream()
+				.filter(isEvenFunction)
+				.peek(n -> System.out.println("Peek Even Number: " + n))
+				.findFirst()
+				.orElse(null);
+		System.out.println("Method 11 :  First Even: "+first);
 
 		// UC 2.6 : Minimum and Maximum even Number
-		Integer min = myNumberList.stream().filter(isEvenFunction).min((n1, n2) -> n1 - n2).orElse(null);
+		Integer min = myNumberList.stream()
+				.filter(isEvenFunction)
+				.min((n1, n2) -> n1 - n2)
+				.orElse(null);
 		System.out.println("Method 12 :  Minimum Number: " + min);
 
-		Integer max = myNumberList.stream().filter(isEvenFunction).max(Comparator.comparing(Integer::intValue))
+		Integer max = myNumberList.stream()
+				.filter(isEvenFunction)
+				.max(Comparator.comparing(Integer::intValue))
 				.orElse(null);
 		System.out.println("Method 13 :  Maximum Number: " + max);
 
@@ -96,5 +107,17 @@ public class NumberPlayListApp {
 		long count = myNumberList.stream()
 				.count();
 		System.out.println("Method 14 : Average of " + sum + "/" + count + " = " + sum / count);
+
+		// UC 2.8 : Stream allMatch(), anyMatch()
+		// UC 2.8
+		boolean allEven = myNumberList.stream()
+				.allMatch(isEvenFunction);
+		boolean oneEven = myNumberList.stream()
+				.anyMatch(isEvenFunction);
+		boolean noneMultipleOfSix = myNumberList.stream()
+				.noneMatch(i -> i > 0 && i % 6 == 0);
+		System.out.println("All Even : " + allEven);
+		System.out.println("One Even : " + oneEven);
+		System.out.println("None Multiple Of Six : " + noneMultipleOfSix);
 	}
 }
