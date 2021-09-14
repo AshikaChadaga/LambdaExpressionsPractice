@@ -1,6 +1,7 @@
 package com.bridgelabz.lambdaexpressions;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -83,6 +84,18 @@ public class NumberPlayListApp {
 				.peek(n -> System.out.println("Peek Even Number: "+n))
 				.findFirst()
 				.orElse(null);
-		System.out.println("Method 11 :  First Even: "+first);
+		
+		//UC 2.6 : Minimum and Maximum even Number
+		Integer min = myNumberList.stream()
+				.filter(isEvenFunction)
+				.min((n1,n2) -> n1-n2)
+				.orElse(null);
+		System.out.println("Method 12 :  Minimum Number: "+min);
+
+		Integer max = myNumberList.stream()
+				.filter(isEvenFunction)
+				.max(Comparator.comparing(Integer::intValue))
+				.orElse(null);
+		System.out.println("Method 13 :  Maximum Number: "+max);
 	}
 }
