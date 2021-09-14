@@ -78,6 +78,14 @@ public class NumberPlayListApp {
 				.map(toDoubleFunction)
 				.collect(Collectors.toList());
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
-
+		
+		//UC 2.5 : Peek First Element 
+		List<Double> streamList1 = myNumberList.stream()
+				.filter(isEvenFunction)
+				.peek(n -> System.out.println("Peek Even Number: " + n))
+				.map(toDoubleFunction)
+				.collect(Collectors.toList());
+		System.out.println("Method 10 : Printing Even Double List"+streamList1);
+		
 	}
 }
