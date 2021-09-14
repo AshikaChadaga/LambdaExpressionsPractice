@@ -73,19 +73,16 @@ public class NumberPlayListApp {
 
 		// Method 9 : Process The Streams, Apply Operations on the Stream and Store the
 		// Result
-		List<Double> streamList = myNumberList.stream()
-				.filter(isEvenFunction)
-				.map(toDoubleFunction)
+		List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(toDoubleFunction)
 				.collect(Collectors.toList());
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
-		
-		//UC 2.5 : Peek First Element 
-		List<Double> streamList1 = myNumberList.stream()
+
+		// UC 2.5 : Peek First Element
+		Integer first = myNumberList.stream()
 				.filter(isEvenFunction)
-				.peek(n -> System.out.println("Peek Even Number: " + n))
-				.map(toDoubleFunction)
-				.collect(Collectors.toList());
-		System.out.println("Method 10 : Printing Even Double List"+streamList1);
-		
+				.peek(n -> System.out.println("Peek Even Number: "+n))
+				.findFirst()
+				.orElse(null);
+		System.out.println("Method 11 :  First Even: "+first);
 	}
 }
