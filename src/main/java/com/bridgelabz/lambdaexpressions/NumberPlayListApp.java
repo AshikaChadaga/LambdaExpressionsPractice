@@ -79,23 +79,22 @@ public class NumberPlayListApp {
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
 
 		// UC 2.5 : Peek First Element
-		Integer first = myNumberList.stream()
-				.filter(isEvenFunction)
-				.peek(n -> System.out.println("Peek Even Number: "+n))
-				.findFirst()
-				.orElse(null);
-		
-		//UC 2.6 : Minimum and Maximum even Number
-		Integer min = myNumberList.stream()
-				.filter(isEvenFunction)
-				.min((n1,n2) -> n1-n2)
-				.orElse(null);
-		System.out.println("Method 12 :  Minimum Number: "+min);
+		Integer first = myNumberList.stream().filter(isEvenFunction)
+				.peek(n -> System.out.println("Peek Even Number: " + n)).findFirst().orElse(null);
 
-		Integer max = myNumberList.stream()
-				.filter(isEvenFunction)
-				.max(Comparator.comparing(Integer::intValue))
+		// UC 2.6 : Minimum and Maximum even Number
+		Integer min = myNumberList.stream().filter(isEvenFunction).min((n1, n2) -> n1 - n2).orElse(null);
+		System.out.println("Method 12 :  Minimum Number: " + min);
+
+		Integer max = myNumberList.stream().filter(isEvenFunction).max(Comparator.comparing(Integer::intValue))
 				.orElse(null);
-		System.out.println("Method 13 :  Maximum Number: "+max);
+		System.out.println("Method 13 :  Maximum Number: " + max);
+
+		// UC 2.7 : Sum and Average in Number Stream
+		Integer sum = myNumberList.stream()
+				.reduce(0, Integer::sum);
+		long count = myNumberList.stream()
+				.count();
+		System.out.println("Method 14 : Average of " + sum + "/" + count + " = " + sum / count);
 	}
 }
