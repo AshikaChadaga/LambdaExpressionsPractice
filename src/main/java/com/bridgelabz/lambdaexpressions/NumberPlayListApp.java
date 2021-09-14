@@ -73,7 +73,10 @@ public class NumberPlayListApp {
 
 		// Method 9 : Process The Streams, Apply Operations on the Stream and Store the
 		// Result
-		List<Double> streamList = myNumberList.stream().map(toDoubleFunction).collect(Collectors.toList());
+		List<Double> streamList = myNumberList.stream()
+				.filter(isEvenFunction)
+				.map(toDoubleFunction)
+				.collect(Collectors.toList());
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
 
 	}
