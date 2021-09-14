@@ -1,2 +1,2 @@
 # LambdaExpressionsPractice
-Brideg Labz: Lambda Expressions Practice
+BridgeLabz: Lambda Expressions Practice
