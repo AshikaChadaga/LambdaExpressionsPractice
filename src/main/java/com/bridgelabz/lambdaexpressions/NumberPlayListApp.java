@@ -1,6 +1,6 @@
 package com.bridgelabz.lambdaexpressions;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -71,9 +71,9 @@ public class NumberPlayListApp {
 			System.out.println("Method 8 : Stream forEach Value: " + n);
 		});
 
-		//Method 9 : Process The Streams, Apply Operations on the Stream and Store the Result
-		List<Double> streamList = myNumberList.stream().map(toDoubleFunction)
-									.collect(Collectors.toList());
+		// Method 9 : Process The Streams, Apply Operations on the Stream and Store the
+		// Result
+		List<Double> streamList = myNumberList.stream().map(toDoubleFunction).collect(Collectors.toList());
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
 
 	}
