@@ -86,30 +86,29 @@ public class NumberPlayListApp {
 				.peek(n -> System.out.println("Peek Even Number: " + n))
 				.findFirst()
 				.orElse(null);
-		System.out.println("Method 11 :  First Even: "+first);
+		System.out.println("Method 10 :  First Even: "+first);
 
 		// UC 2.6 : Minimum and Maximum even Number
 		Integer min = myNumberList.stream()
 				.filter(isEvenFunction)
 				.min((n1, n2) -> n1 - n2)
 				.orElse(null);
-		System.out.println("Method 12 :  Minimum Number: " + min);
+		System.out.println("Method 11 :  Minimum Number: " + min);
 
 		Integer max = myNumberList.stream()
 				.filter(isEvenFunction)
 				.max(Comparator.comparing(Integer::intValue))
 				.orElse(null);
-		System.out.println("Method 13 :  Maximum Number: " + max);
+		System.out.println("Method 12 :  Maximum Number: " + max);
 
 		// UC 2.7 : Sum and Average in Number Stream
 		Integer sum = myNumberList.stream()
 				.reduce(0, Integer::sum);
 		long count = myNumberList.stream()
 				.count();
-		System.out.println("Method 14 : Average of " + sum + "/" + count + " = " + sum / count);
+		System.out.println("Method 13 : Average of " + sum + "/" + count + " = " + sum / count);
 
 		// UC 2.8 : Stream allMatch(), anyMatch()
-		// UC 2.8
 		boolean allEven = myNumberList.stream()
 				.allMatch(isEvenFunction);
 		boolean oneEven = myNumberList.stream()
@@ -118,6 +117,13 @@ public class NumberPlayListApp {
 				.noneMatch(i -> i > 0 && i % 6 == 0);
 		System.out.println("All Even : " + allEven);
 		System.out.println("One Even : " + oneEven);
-		System.out.println("None Multiple Of Six : " + noneMultipleOfSix);
+		System.out.println("Method 14 : None Multiple Of Six : " + noneMultipleOfSix);
+		
+		//UC 2.9 Sort Number in Ascending Order
+		List<Integer> sortedList = myNumberList.stream()
+				.sorted((n1,n2) -> n2.compareTo(n1))
+				.collect(Collectors.toList());
+		System.out.println("Method 15 : Sorted List : "+sortedList);
+		
 	}
 }
