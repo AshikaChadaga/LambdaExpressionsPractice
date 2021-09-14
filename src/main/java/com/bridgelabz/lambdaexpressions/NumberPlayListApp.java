@@ -80,12 +80,12 @@ public class NumberPlayListApp {
 		System.out.println("Method 9 : Printing Even Double List" + streamList);
 		
 		//UC 2.5 : Peek First Element 
-		List<Double> streamList1 = myNumberList.stream()
+		Integer first = myNumberList.stream()
 				.filter(isEvenFunction)
-				.peek(n -> System.out.println("Peek Even Number: " + n))
-				.map(toDoubleFunction)
-				.collect(Collectors.toList());
-		System.out.println("Method 10 : Printing Even Double List"+streamList1);
+				.peek(n -> System.out.println("Peek Even Number: "+n))
+				.findFirst()
+				.orElse(null);
+		System.out.println("Method 10 :  First Even: "+first);
 		
 	}
 }
