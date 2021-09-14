@@ -62,6 +62,12 @@ public class NumberPlayListApp {
 			if(testResult == true)
 				System.out.println("Method7 : "+ n + " is Even : ");
 		});
+		
+		//JAVA STREAM API
+		//Method 8 : Processing the Stream
+		myNumberList.stream().forEach(n -> {
+			System.out.println("Method 8 : Stream forEach Value: " + n);
+		});
 
 	}
 }
