@@ -1,11 +1,13 @@
 package com.bridgelabz.lambdaexpressions;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NumberPlayListApp {
 
@@ -59,15 +61,20 @@ public class NumberPlayListApp {
 		Predicate<Integer> isEvenFunction = n -> n > 0 && n % 2 == 0;
 		myNumberList.forEach(n -> {
 			boolean testResult = isEvenFunction.test(n);
-			if(testResult == true)
-				System.out.println("Method7 : "+ n + " is Even : ");
+			if (testResult == true)
+				System.out.println("Method7 : " + n + " is Even : ");
 		});
-		
-		//JAVA STREAM API
-		//Method 8 : Processing the Stream
+
+		// JAVA STREAM API
+		// Method 8 : Processing the Stream
 		myNumberList.stream().forEach(n -> {
 			System.out.println("Method 8 : Stream forEach Value: " + n);
 		});
+
+		//Method 9 : Process The Streams, Apply Operations on the Stream and Store the Result
+		List<Double> streamList = myNumberList.stream().map(toDoubleFunction)
+									.collect(Collectors.toList());
+		System.out.println("Method 9 : Printing Even Double List" + streamList);
 
 	}
 }
